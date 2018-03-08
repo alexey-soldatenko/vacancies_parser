@@ -1,0 +1,33 @@
+body{
+	background: #DCDCDC;
+}
+.title{
+	padding: 10px;
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+	border: 1px solid white;
+	margin-top: 10px;
+	box-sizing: border-box;
+}
+.title a{
+	color: #008000;
+	font-weight: bold;
+}
+.title a:hover{
+	color: red;
+}
+.text{
+	background: white;
+	padding: 10px;
+	width: 60%;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+.count{
+	width: 60%;
+	margin: 0 auto;
+	font-size: 1.2em;
+	text-align: center;
+	padding: 10px;
+}

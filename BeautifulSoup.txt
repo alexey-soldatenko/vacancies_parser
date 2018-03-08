@@ -1,0 +1,67 @@
+Работа с BeautifulSoup (Python 3)
+
+Установка 
+$ apt-get install python3-bs4
+
+1. Для начала необходимо импортировать библиотеку
+
+>>>from bs4 import BeautifulSoup
+
+2. Обработка HTML-текста
+
+>>>response = requests.get(new_page)
+>>>encoding = response.encoding
+
+>>>soup = BeautifulSoup(response.content.decode(encoding), 'html.parser')
+
+soup - дерево элементов (тэгов/узлов)
+
+3. Поиск элементов осуществляется посредством использования методов find() и 
+findAll(), которые принимают параметры для поиска нужного элемента.
+
+>>>soup.find('a') #ищет первый встречающийся тэг "а"
+
+>>>soup.findALL('div') #создает список из всех найденных элементов "div"
+
+Для расширенного поиска используется параметр методов find() и findAll() attrs:
+
+#ищет 'div' с атрибутом class="big-block"
+>>>soup.find('div', attrs={'class':'big-block'})
+
+#ищет элемент с id="link"
+>>>soup.find(id="link3")
+
+4. Для получение значений атрибутов элемента используется метод get()
+
+>>>link = soup.find('a')
+>>>link.get('href')
+
+5. Для получения имени элемента используется атрибут name
+
+>>>link.name
+
+6. Для извлечения текста из элемента используются метод get_text(), атрибуты
+text и string
+
+#извлекает весь текст из элемента, включая дочерние узлы
+>>>div = soup.find('div', attrs={'class':'content'})
+>>>div.get_text()
+
+Для извлечения всего текста из html-документа можем воспользоваться данным 
+методом, применимо к корневому элементу soup
+
+>>>soup.get_text()
+
+7. Навигация по элементам
+
+>>>div.p.text
+>>>div.find('p', attrs={'class':'first'}).a.get('href')
+
+8. Обработка дочерних элементов.
+Для поиска дочерних элементвов используется атрибуты children, descendants
+
+#генерируется список из всех прямых дочерних элементов
+>>>div.children 
+
+#генерируется список из всех дочерних элементов
+>>>div.descendants
